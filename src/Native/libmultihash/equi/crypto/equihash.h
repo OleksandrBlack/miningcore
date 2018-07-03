@@ -214,8 +214,8 @@ static Equihash<144,5> Eh144_5;
         Eh96_5.InitialiseState(base_state);  \
     } else if (n == 48 && k == 5) {          \
         Eh48_5.InitialiseState(base_state);  \
-    } else if (n == 144 && k == 5) {          \
-        Eh144_5.InitialiseState(base_state);  \
+    } else if (n == 144 && k == 5) {         \
+        Eh144_5.InitialiseState(base_state); \
     } else {                                 \
         throw std::invalid_argument("Unsupported Equihash parameters"); \
     }
@@ -283,8 +283,8 @@ inline bool EhOptimisedSolveUncancellable(unsigned int n, unsigned int k, const 
         ret = Eh96_5.IsValidSolution(base_state, soln);  \
     } else if (n == 48 && k == 5) {                      \
         ret = Eh48_5.IsValidSolution(base_state, soln);  \
-    } else if (n == 144 && k == 5) {                      \
-        ret = Eh144_5.IsValidSolution(base_state, soln);  \
+    } else if (n == 144 && k == 5) {                     \
+        ret = Eh144_5.IsValidSolution(base_state, soln); \
     } else {                                             \
         throw std::invalid_argument("Unsupported Equihash parameters"); \
     }

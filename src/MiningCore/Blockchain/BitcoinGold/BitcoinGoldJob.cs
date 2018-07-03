@@ -44,13 +44,12 @@ namespace MiningCore.Blockchain.BitcoinGold
 
         protected override Transaction CreateOutputTransaction()
         {
-            rewardToPool = new Money(BlockTemplate.CoinbaseValue * blockRewardMultiplier, MoneyUnit.Satoshi);
+            rewardToPool = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
 
             var tx = new Transaction();
 
             // pool reward (t-addr)
             tx.AddOutput(rewardToPool, poolAddressDestination);
-
             return tx;
         }
 

@@ -238,9 +238,13 @@ namespace MiningCore.Blockchain.ZCash
             if (nTime.Length != 8)
                 throw new StratumException(StratumError.Other, "incorrect size of ntime");
 
+
             var nTimeInt = uint.Parse(nTime.HexToByteArray().ReverseArray().ToHexString(), NumberStyles.HexNumber);
             if (nTimeInt < BlockTemplate.CurTime || nTimeInt > ((DateTimeOffset) clock.Now).ToUnixTimeSeconds() + 7200)
                 throw new StratumException(StratumError.Other, "ntime out of range");
+
+
+
 
             var nonce = context.ExtraNonce1 + extraNonce2;
 
@@ -248,9 +252,12 @@ namespace MiningCore.Blockchain.ZCash
             if (nonce.Length != 64)
                 throw new StratumException(StratumError.Other, "incorrect size of extraNonce2");
 
+
+
             // validate solution
             if (solution.Length != 202)
                 throw new StratumException(StratumError.Other, "incorrect size of solution");
+
 
             // dupe check
             if (!RegisterSubmit(nonce, solution))
@@ -303,7 +310,7 @@ namespace MiningCore.Blockchain.ZCash
             var headerBytes = SerializeHeader(nTime, nonce); // 144 bytes (doesn't contain soln)
 
             // verify solution
-            if (!equihash.Verify(headerBytes, solutionBytes.Skip(1).ToArray())) // skip preamble (1 bytes), Equihash BTG
+            if (!equihash.Verify(headerBytes, solutionBytes.Skip(1).ToArray())) // skip preamble (3 bytes)
                 throw new StratumException(StratumError.Other, "invalid solution");
 
             // hash block-header
