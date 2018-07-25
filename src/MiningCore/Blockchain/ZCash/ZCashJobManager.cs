@@ -98,14 +98,14 @@ namespace MiningCore.Blockchain.ZCash
 
             return responseData;
         }
-
-        protected override IDestination AddressToDestination(string address)
-        {
-            var decoded = Encoders.Base58.DecodeData(address);
-            var hash = decoded.Skip(2).Take(20).ToArray();
-            var result = new KeyId(hash);
-            return result;
-        }
+//
+//        protected override IDestination AddressToDestination(string address)
+//        {
+//            var decoded = Encoders.Base58.DecodeData(address);
+//            var hash = decoded.Skip(2).Take(20).ToArray();
+//            var result = new KeyId(hash);
+//            return result;
+//        }
 
         public override async Task<Share> SubmitShareAsync(StratumClient worker, object submission,
             double stratumDifficultyBase)

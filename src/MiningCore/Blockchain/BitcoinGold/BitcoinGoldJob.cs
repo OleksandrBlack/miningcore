@@ -44,13 +44,12 @@ namespace MiningCore.Blockchain.BitcoinGold
 
         protected override Transaction CreateOutputTransaction()
         {
-            rewardToPool = new Money(BlockTemplate.CoinbaseValue * blockRewardMultiplier, MoneyUnit.Satoshi);
+            rewardToPool = new Money(BlockTemplate.CoinbaseValue, MoneyUnit.Satoshi);
 
             var tx = new Transaction();
 
             // pool reward (t-addr)
             tx.AddOutput(rewardToPool, poolAddressDestination);
-
             return tx;
         }
 
@@ -102,7 +101,7 @@ namespace MiningCore.Blockchain.BitcoinGold
 
             BlockTemplate = blockTemplate;
             JobId = jobId;
-            Difficulty = (double)new BigRational(coinbaseTxConfig.Diff1b, BlockTemplate.Target.HexToByteArray().ToBigInteger());
+            Difficulty = (double)new BigRational(coinbaseTxConfig.Diff1b, BlockTemplate.Target.HexToByteArray().ReverseArray().ToBigInteger());
 
             this.isPoS = isPoS;
             this.shareMultiplier = shareMultiplier;
