@@ -33,7 +33,7 @@ using Newtonsoft.Json;
 
 namespace MiningCore.Blockchain.ZCash
 {
-    [CoinMetadata(CoinType.ZEC, CoinType.ZCL, CoinType.ZEN, CoinType.BTCP)]
+    [CoinMetadata(CoinType.ZEC, CoinType.ZCL, CoinType.ZEN, CoinType.BTCP, CoinType.SAFE)]
     public class ZCashPool : ZCashPoolBase<ZCashJob>
     {
         public ZCashPool(IComponentContext ctx,

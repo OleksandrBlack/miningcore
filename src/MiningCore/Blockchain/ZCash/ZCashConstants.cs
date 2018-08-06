@@ -361,6 +361,7 @@ namespace MiningCore.Blockchain.ZCash
                 { CoinType.ZEN, ZencashCoinbaseTxConfig },
                 { CoinType.BTG, ZCLCoinbaseTxConfig },
                 { CoinType.BTCP, BTCPCoinbaseTxConfig },
+                { CoinType.SAFE, ZCLCoinbaseTxConfig },
             };
     }
 
