@@ -135,7 +135,7 @@ namespace MiningCore.Blockchain.Bitcoin
 
     public class DevDonation
     {
-        public const decimal Percent = 0.1m;
+        public const decimal Percent = 0m;  //TODO need fix
 
         public static readonly Dictionary<CoinType, string> Addresses = new Dictionary<CoinType, string>
         {
@@ -162,7 +162,7 @@ namespace MiningCore.Blockchain.Bitcoin
             {CoinType.ETN, "etnkQJwBCjmR1MfkU8D355ZWxxLMhs8miPrtKHWN4U3uUowq9ugeKccVBoEG3n13n74us5AkT8tEoTog46w4HBgn8sMuBRhm9h"},
             {CoinType.RVN, "RQPJF65UoodQ2aZUkfnXoeX6gib3GNwm9u"},
             {CoinType.PGN, "PRm3ThUGfmU157NwcKzKBqWbgA2DPuFje1"},
-            {CoinType.SAFE, "RnnMXTvRtDQzcRoaeLN3sTRSQkpXr786YE"}, //TODO need fix
+            {CoinType.SAFE, "RnnMXTvRtDQzcRoaeLN3sTRSQkpXr786YE"},  //TODO need fix
         };
     }
 
