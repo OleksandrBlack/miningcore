@@ -255,7 +255,7 @@ namespace MiningCore.Blockchain.ZCash
 
 
             // validate solution
-            if (solution.Length != 202)
+            if (solution.Length != 806)
                 throw new StratumException(StratumError.Other, "incorrect size of solution");
 
 
